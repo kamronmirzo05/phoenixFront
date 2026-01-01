@@ -25,9 +25,9 @@ cd "$(dirname "$0")"
 if [ ! -f .env ]; then
     echo "⚠️  .env file not found. Creating default .env file..."
     cat > .env << 'EOF'
-VITE_API_BASE_URL=http://127.0.0.1:8000/api/v1
+VITE_API_BASE_URL=https://api.ilmiyfaoliyat.uz/api/v1
 VITE_GEMINI_API_KEY=AIzaSyBm02i-rm_XNVckLVGOKBqH1GH6tk4pFKE
-VITE_MEDIA_URL=http://127.0.0.1:8000/media/
+VITE_MEDIA_URL=https://api.ilmiyfaoliyat.uz/media/
 VITE_ENV=development
 EOF
     echo "✓ Created .env file with default settings"
@@ -53,7 +53,7 @@ echo ""
 echo "🌐 Starting development server..."
 echo "   Frontend: http://localhost:5173"
 echo ""
-echo "⚠️  Make sure backend is running on http://127.0.0.1:8000"
+echo "⚠️  Make sure backend is running on https://api.ilmiyfaoliyat.uz"
 echo ""
 echo "Press Ctrl+C to stop the server"
 echo ""

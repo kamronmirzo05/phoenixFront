@@ -23,7 +23,7 @@ export async function testConnection(phone: string, password: string): Promise<T
   // 1. First test direct API access
   try {
     console.log('Testing direct API access...');
-    const testResponse = await fetch('http://127.0.0.1:8000/api/v1/auth/login/', {
+    const testResponse = await fetch('https://api.ilmiyfaoliyat.uz/api/v1/auth/login/', {
       method: 'OPTIONS',
       headers: {
         'Content-Type': 'application/json',

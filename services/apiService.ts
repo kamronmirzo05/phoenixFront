@@ -23,8 +23,8 @@ export const apiFetch = async (endpoint: string, options: RequestInit = {}) => {
   const token = getToken();
   
   // Ensure proper URL formatting by removing trailing slash from base and leading slash from endpoint
-  const cleanBaseUrl = API_BASE_URL.replace(/\/$/, '');
-  const cleanEndpoint = endpoint.replace(/^\//, '');
+  const cleanBaseUrl = API_BASE_URL.replace(/\/$/, '').trim();
+  const cleanEndpoint = endpoint.replace(/^\//, '').trim();
   const fullUrl = `${cleanBaseUrl}/${cleanEndpoint}`;
   
   const headers: HeadersInit = {
@@ -765,8 +765,8 @@ export const apiService = {
     }
     
     // Ensure proper URL formatting by removing trailing slash from base and leading slash from endpoint
-    const cleanBaseUrl = API_BASE_URL.replace(/\/$/, '');
-    const cleanEndpoint = endpoint.replace(/^\//, '');
+    const cleanBaseUrl = API_BASE_URL.replace(/\/$/, '').trim();
+    const cleanEndpoint = endpoint.replace(/^\//, '').trim();
     const fullUrl = `${cleanBaseUrl}/${cleanEndpoint}`;
 
     const response = await fetch(fullUrl, {

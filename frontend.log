@@ -1,0 +1,10 @@
+
+> phoenix-scientific-8@0.0.0 dev
+> vite
+
+Port 3000 is in use, trying another one...
+
+  VITE v6.4.1  ready in 172 ms
+
+  ➜  Local:   http://localhost:3001/
+  ➜  Network: http://10.92.231.56:3001/

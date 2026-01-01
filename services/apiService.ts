@@ -22,6 +22,11 @@ const removeToken = () => {
 export const apiFetch = async (endpoint: string, options: RequestInit = {}) => {
   const token = getToken();
   
+  // Ensure proper URL formatting by removing trailing slash from base and leading slash from endpoint
+  const cleanBaseUrl = API_BASE_URL.replace(/\/$/, '');
+  const cleanEndpoint = endpoint.replace(/^\//, '');
+  const fullUrl = `${cleanBaseUrl}/${cleanEndpoint}`;
+  
   const headers: HeadersInit = {
     'Content-Type': 'application/json',
     ...options.headers,
@@ -37,7 +42,7 @@ export const apiFetch = async (endpoint: string, options: RequestInit = {}) => {
   };
 
   try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
+    const response = await fetch(fullUrl, config);
 
     // Handle 401 Unauthorized - token expired
     if (response.status === 401) {
@@ -758,8 +763,13 @@ export const apiService = {
     if (token) {
       headers['Authorization'] = `Bearer ${token}`;
     }
+    
+    // Ensure proper URL formatting by removing trailing slash from base and leading slash from endpoint
+    const cleanBaseUrl = API_BASE_URL.replace(/\/$/, '');
+    const cleanEndpoint = endpoint.replace(/^\//, '');
+    const fullUrl = `${cleanBaseUrl}/${cleanEndpoint}`;
 
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    const response = await fetch(fullUrl, {
       method: 'POST',
       headers,
       body: formData,
